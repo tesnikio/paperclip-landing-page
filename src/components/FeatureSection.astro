@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  imagePosition?: "left" | "right";
+  gradient?: string;
+}
+
+const { 
+  title, 
+  description, 
+  imagePosition = "right",
+  gradient = "from-gradient-start to-gradient-mid"
+} = Astro.props;
+
+const flexClass = imagePosition === "left" ? "md:flex-row-reverse" : "md:flex-row";
+---
+
+<section class="py-24 px-6 md:px-12 lg:px-24">
+  <div class={`max-w-6xl mx-auto flex flex-col ${flexClass} items-center gap-12`}>
+    <div class="flex-1 text-center md:text-left">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight">
+        {title}
+      </h2>
+      <p class="mt-4 text-lg text-muted-foreground max-w-lg">
+        {description}
+      </p>
+    </div>
+    <div class="flex-1">
+      <div class={`bg-gradient-to-br ${gradient} rounded-3xl p-8 aspect-square max-w-md mx-auto flex items-center justify-center`}>
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
+

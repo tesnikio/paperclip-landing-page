@@ -1,0 +1,306 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Paperclip - The best native macOS clipboard manager that supercharges your productivity." />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-background text-foreground font-sans antialiased">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer base {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 220 20% 20%;
+
+      --card: 0 0% 100%;
+      --card-foreground: 220 20% 20%;
+
+      --popover: 0 0% 100%;
+      --popover-foreground: 220 20% 20%;
+
+      --primary: 220 20% 20%;
+      --primary-foreground: 0 0% 100%;
+
+      --secondary: 0 0% 96%;
+      --secondary-foreground: 220 20% 20%;
+
+      --muted: 0 0% 96%;
+      --muted-foreground: 220 10% 50%;
+
+      --accent: 175 60% 50%;
+      --accent-foreground: 0 0% 100%;
+
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 40% 98%;
+
+      --border: 0 0% 90%;
+      --input: 0 0% 90%;
+      --ring: 175 60% 50%;
+
+      --radius: 1rem;
+
+      /* Clipboard card type colors - matching app design */
+      --clip-text: 211 100% 50%;
+      --clip-link: 142 71% 45%;
+
+      /* Custom colors - Blue theme matching app */
+      --gradient-start: 211 100% 50%;
+      --gradient-mid: 211 85% 60%;
+      --gradient-end: 207 70% 70%;
+      --gradient-accent: 211 90% 55%;
+      
+      --glass-bg: 0 0% 100% / 0.7;
+      --glass-border: 0 0% 100% / 0.3;
+      
+      --text-hero: 0 0% 100%;
+      --text-hero-muted: 0 0% 100% / 0.8;
+
+      --sidebar-background: 0 0% 98%;
+      --sidebar-foreground: 240 5.3% 26.1%;
+      --sidebar-primary: 240 5.9% 10%;
+      --sidebar-primary-foreground: 0 0% 98%;
+      --sidebar-accent: 240 4.8% 95.9%;
+      --sidebar-accent-foreground: 240 5.9% 10%;
+      --sidebar-border: 220 13% 91%;
+      --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+
+    .dark {
+      --background: 220 20% 10%;
+      --foreground: 0 0% 95%;
+      --card: 220 20% 12%;
+      --card-foreground: 0 0% 95%;
+      --popover: 220 20% 12%;
+      --popover-foreground: 0 0% 95%;
+      --primary: 0 0% 100%;
+      --primary-foreground: 220 20% 10%;
+      --secondary: 220 15% 18%;
+      --secondary-foreground: 0 0% 95%;
+      --muted: 220 15% 18%;
+      --muted-foreground: 220 10% 60%;
+      --accent: 175 60% 50%;
+      --accent-foreground: 0 0% 100%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 220 15% 20%;
+      --input: 220 15% 20%;
+      --ring: 175 60% 50%;
+      --sidebar-background: 240 5.9% 10%;
+      --sidebar-foreground: 240 4.8% 95.9%;
+      --sidebar-primary: 224.3 76.3% 48%;
+      --sidebar-primary-foreground: 0 0% 100%;
+      --sidebar-accent: 240 3.7% 15.9%;
+      --sidebar-accent-foreground: 240 4.8% 95.9%;
+      --sidebar-border: 240 3.7% 15.9%;
+      --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+  }
+
+  @layer base {
+    * {
+      @apply border-border;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+    }
+  }
+
+  @layer components {
+    .hero-gradient {
+      background: linear-gradient(
+        135deg,
+        hsl(211 100% 45%) 0%,
+        hsl(211 90% 55%) 25%,
+        hsl(207 80% 60%) 50%,
+        hsl(200 75% 65%) 75%,
+        hsl(195 70% 70%) 100%
+      );
+      background-size: 200% 200%;
+      animation: gradientShift 8s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .glass-nav {
+      background: hsl(0 0% 100% / 0.15);
+      backdrop-filter: blur(20px);
+      border: 1px solid hsl(0 0% 100% / 0.25);
+    }
+
+    .glass-card {
+      background: hsl(0 0% 100% / 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid hsl(0 0% 100% / 0.2);
+    }
+
+    .glass-card-strong {
+      background: hsl(0 0% 100% / 0.15);
+      backdrop-filter: blur(30px);
+      border: 1px solid hsl(0 0% 100% / 0.3);
+      box-shadow: 0 25px 50px -12px hsl(211 100% 30% / 0.25);
+    }
+
+    .glass-panel {
+      background: hsl(0 0% 100% / 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid hsl(0 0% 100% / 0.2);
+      box-shadow: 0 8px 32px hsl(211 100% 50% / 0.1);
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        box-shadow: 0 8px 32px hsl(211 100% 50% / 0.1);
+      }
+      50% {
+        box-shadow: 0 8px 40px hsl(211 100% 60% / 0.3), 0 0 60px hsl(200 80% 70% / 0.2);
+      }
+    }
+
+    .animate-glow-pulse {
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    .text-hero {
+      color: hsl(var(--text-hero));
+    }
+
+    .text-hero-muted {
+      color: hsl(var(--text-hero-muted));
+    }
+
+    .btn-download {
+      @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+      background: hsl(var(--background));
+      color: hsl(var(--foreground));
+      box-shadow: 0 4px 20px hsl(0 0% 0% / 0.1);
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px hsl(0 0% 0% / 0.15);
+    }
+
+    .nav-link {
+      @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-200;
+      color: hsl(var(--foreground));
+    }
+
+    .nav-link:hover {
+      background: hsl(0 0% 0% / 0.05);
+    }
+
+    .nav-link.active {
+      background: hsl(0 0% 0% / 0.08);
+    }
+
+    .feature-card {
+      @apply p-8 rounded-3xl;
+      background: hsl(0 0% 100% / 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid hsl(0 0% 100% / 0.5);
+      box-shadow: 0 10px 40px -10px hsl(211 100% 30% / 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px -15px hsl(211 100% 30% / 0.2);
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in-delay-1 {
+      animation: fadeInUp 0.8s ease-out 0.1s forwards;
+      opacity: 0;
+    }
+
+    .animate-fade-in-delay-2 {
+      animation: fadeInUp 0.8s ease-out 0.2s forwards;
+      opacity: 0;
+    }
+
+    .animate-fade-in-delay-3 {
+      animation: fadeInUp 0.8s ease-out 0.3s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+</style>
+

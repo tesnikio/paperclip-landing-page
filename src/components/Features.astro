@@ -1,0 +1,175 @@
+---
+import FeatureSection from './FeatureSection.astro';
+import FeatureCard from './FeatureCard.astro';
+---
+
+<div id="features" class="bg-background pt-48">
+  <FeatureSection
+    title="Ready when you need it, invisible when you don't."
+    description="Access your clipboard history instantly with a simple keyboard shortcut. Paperclip stays out of your way until you need it."
+    imagePosition="right"
+    gradient="from-gradient-start/30 to-gradient-mid/30"
+  >
+    <div class="glass-card rounded-2xl p-6 w-full max-w-xs animate-float">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center">
+          <!-- Keyboard icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent">
+            <rect width="20" height="16" x="2" y="4" rx="2" ry="2"/>
+            <path d="M6 8h.001"/>
+            <path d="M10 8h.001"/>
+            <path d="M14 8h.001"/>
+            <path d="M18 8h.001"/>
+            <path d="M8 12h.001"/>
+            <path d="M12 12h.001"/>
+            <path d="M16 12h.001"/>
+            <path d="M7 16h10"/>
+          </svg>
+        </div>
+        <span class="text-sm font-medium">Quick Access</span>
+      </div>
+      <div class="flex gap-2 justify-center">
+        <kbd class="px-3 py-2 bg-secondary rounded-lg text-sm font-mono">⌘</kbd>
+        <kbd class="px-3 py-2 bg-secondary rounded-lg text-sm font-mono">⇧</kbd>
+        <kbd class="px-3 py-2 bg-secondary rounded-lg text-sm font-mono">V</kbd>
+      </div>
+    </div>
+  </FeatureSection>
+
+  <FeatureSection
+    title="Search through everything you've ever copied."
+    description="Powerful fuzzy search lets you find any text, link, or snippet from your entire clipboard history in milliseconds."
+    imagePosition="left"
+    gradient="from-gradient-accent/30 to-gradient-end/30"
+  >
+    <div class="glass-card rounded-2xl p-6 w-full max-w-xs">
+      <div class="flex items-center gap-3 p-3 bg-secondary rounded-xl mb-4">
+        <!-- Search icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.3-4.3"/>
+        </svg>
+        <span class="text-sm text-muted-foreground">Search clips...</span>
+      </div>
+      <div class="space-y-2">
+        <div class="p-3 bg-accent/10 rounded-lg border border-accent/20">
+          <p class="text-sm font-medium">API documentation</p>
+          <p class="text-xs text-muted-foreground">Copied 3 days ago</p>
+        </div>
+        <div class="p-3 bg-secondary/50 rounded-lg">
+          <p class="text-sm">API response handler</p>
+        </div>
+      </div>
+    </div>
+  </FeatureSection>
+
+  <FeatureSection
+    title="Your clipboard history, secured."
+    description="All your clips are stored locally on your Mac with encryption. Sensitive data stays private and never leaves your device."
+    imagePosition="right"
+    gradient="from-gradient-mid/30 to-gradient-start/30"
+  >
+    <div class="relative">
+      <div class="w-24 h-24 rounded-full bg-accent/20 flex items-center justify-center animate-pulse">
+        <!-- Lock icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent">
+          <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+        <!-- Sparkles icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600">
+          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+          <path d="M5 3v4"/>
+          <path d="M19 17v4"/>
+          <path d="M3 5h4"/>
+          <path d="M17 19h4"/>
+        </svg>
+      </div>
+    </div>
+  </FeatureSection>
+
+  <!-- Additional features grid -->
+  <section id="how-it-works" class="py-24 px-6 md:px-12 lg:px-24 bg-secondary/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-semibold text-center mb-4">And much more...</h2>
+      <p class="text-muted-foreground text-center mb-16 max-w-lg mx-auto">
+        Paperclip is packed with features to make your workflow seamless.
+      </p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <FeatureCard
+          title="Unlimited History"
+          description="Never lose a clip again. Paperclip stores everything you copy."
+        >
+          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+            <path d="M12 7v5l4 2"/>
+          </svg>
+        </FeatureCard>
+
+        <FeatureCard
+          title="Lightning Fast"
+          description="Native macOS app built for speed. Opens in under 100ms."
+        >
+          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+          </svg>
+        </FeatureCard>
+
+        <FeatureCard
+          title="Keyboard First"
+          description="Double tap ⌘ to open. Navigate and paste without touching your mouse."
+        >
+          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2" ry="2"/>
+            <path d="M6 8h.001"/>
+            <path d="M10 8h.001"/>
+            <path d="M14 8h.001"/>
+            <path d="M18 8h.001"/>
+            <path d="M8 12h.001"/>
+            <path d="M12 12h.001"/>
+            <path d="M16 12h.001"/>
+            <path d="M7 16h10"/>
+          </svg>
+        </FeatureCard>
+
+        <FeatureCard
+          title="Private by Design"
+          description="Auto-exclude passwords and sensitive data from clipboard history."
+        >
+          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </FeatureCard>
+
+        <FeatureCard
+          title="Smart Categories"
+          description="Automatically organize clips by type: text, links, images, code."
+        >
+          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+        </FeatureCard>
+
+        <FeatureCard
+          title="Snippets"
+          description="Save frequently used text as snippets for quick access."
+        >
+          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            <path d="M5 3v4"/>
+            <path d="M19 17v4"/>
+            <path d="M3 5h4"/>
+            <path d="M17 19h4"/>
+          </svg>
+        </FeatureCard>
+      </div>
+    </div>
+  </section>
+</div>
+

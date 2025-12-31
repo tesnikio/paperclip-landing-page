@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="404 - Page Not Found">
+  <main class="hero-gradient min-h-screen flex flex-col items-center justify-center px-6">
+    <div class="glass-card-strong p-12 rounded-[3rem] text-center">
+      <h1 class="text-8xl md:text-9xl font-bold text-hero mb-4">404</h1>
+      <p class="text-xl md:text-2xl text-hero-muted mb-8">Page not found</p>
+      <a href={base} class="btn-download inline-flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Go Home
+      </a>
+    </div>
+  </main>
+</Layout>
+
